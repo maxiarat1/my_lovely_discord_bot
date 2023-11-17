@@ -50,11 +50,25 @@ client.on(Events.InteractionCreate, async interaction => {
 		}
 	}
 });
+
 client.on("guildMemberAdd", member => {
-	console.log(`${member.user.username}`)
+    // Log the username to the console
+    console.log(`${member.user.username} has joined the server`);
+
+    // Send a message to a designated channel
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome-channel'); // Replace 'welcome-channel' with the name of your welcome channel
+    if (!channel) return;
+
+    channel.send(`Welcome to the server, ${member}!`);
 });
-
-
+client.on('inviteCreate', invite => {
+    // Log basic invite details
+    console.log(`An invite was created:`);
+    console.log(` - Code: ${invite.code}`);
+    console.log(` - Inviter: ${invite.inviter.tag}`); // 'tag' includes both username and discriminator
+    console.log(` - Channel: ${invite.channel.name}`);
+    console.log(` - Expires: ${invite.expiresTimestamp ? new Date(invite.expiresTimestamp).toLocaleString() : 'Never'}`);
+});
 
 
 client.login(process.env.DISCORD_TOKEN);

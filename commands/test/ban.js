@@ -1,6 +1,6 @@
 
 const { Client, interaction, ApplicationCommandOptionType, SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
-
+//module is the object and has data property 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ban')
