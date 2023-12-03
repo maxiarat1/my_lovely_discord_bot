@@ -33,7 +33,7 @@ module.exports = {
         const p_prompt_str = interaction.options.get("p_prompt").value;
         await page.type('.scroll-hide.svelte-1f354aw', p_prompt_str);
         await page.click('#generate_button');
-
+        //waiting for implementation
         //const n_prompt_str = interaction.options.get("n_prompt").value;
 
         const firstImageSelector = 'button.thumbnail-item.thumbnail-lg.svelte-1b19cri img';
